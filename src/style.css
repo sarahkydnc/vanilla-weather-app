@@ -2,3 +2,8 @@ h1 {
   color: orange;
   text-align: center;
 }
+
+.btn-primary {
+  display: block;
+  margin: 0 auto;
+}

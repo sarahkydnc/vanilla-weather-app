@@ -4,8 +4,8 @@ h1 {
 }
 
 .btn-primary {
-  color: cornflowerblue;
+  background-color: cornflowerblue;
   display: block;
   margin: 0 auto;
-  max-width: 60px;
+  max-width: 120px;
 }

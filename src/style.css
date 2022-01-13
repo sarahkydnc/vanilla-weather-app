@@ -22,7 +22,7 @@ li {
   color: black;
   font-size: 16px;
   font-weight: 100;
-  line-height: 18px;
+  line-height: 20px;
 }
 
 .weather-app-wrapper {
@@ -59,8 +59,12 @@ li {
   top: -34px;
 }
 
-.weather-conditions {
-  margin-top: 6px;
+.other-conditions {
+  margin-top: 4px;
+}
+
+#description {
+  text-transform: capitalize;
 }
 
 #footer-credits {

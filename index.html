@@ -18,15 +18,33 @@
     <div class="container">
       <div class="weather-app-wrapper">
         <div class="weather-app">
+          <form id="search-form" class="mb-3">
+            <div class="row">
+              <div class="col-9">
+                <input
+                  type="search"
+                  placeholder="Enter a location..."
+                  class="form-control"
+                  id="search-input"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Let's search!"
+                  class="btn btn-primary w-100"
+                />
+              </div>
+            </div>
+          </form>
           <div class="overview">
             <h1 id="city"></h1>
-
             <ul>
               <li>Last updated: <span id="date-time"></span></li>
               <li id="description"></li>
             </ul>
           </div>
-
           <div class="row">
             <div class="col-6">
               <div class="d-flex weather-temperature">
@@ -64,7 +82,6 @@
         </small>
       </div>
     </div>
-
     <script src="src/app.js"></script>
   </body>
 </html>

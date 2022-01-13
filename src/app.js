@@ -42,8 +42,6 @@ function formatDate(timestamp) {
 }
 
 function displayWeather(response) {
-  console.log(response.data);
-
   let city = document.querySelector("#city");
   city.innerHTML = response.data.name;
 
@@ -56,6 +54,14 @@ function displayWeather(response) {
   let temp = document.querySelector("#temp");
   let roundedTemp = Math.round(response.data.main.temp);
   temp.innerHTML = roundedTemp;
+
+  let icon = document.querySelector("#icon");
+  let currentIcon = response.data.weather[0].icon;
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${currentIcon}@2x.png`
+  );
+  icon.setAttribute("alt", currentIcon);
 
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = response.data.main.humidity;

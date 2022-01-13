@@ -41,11 +41,30 @@ li {
 }
 
 .weather-temperature img {
-  margin-right: 10px;
+  margin-right: 12px;
   height: 64px;
   width: 64px;
 }
 
+.weather-temperature strong {
+  display: inline;
+  line-height: 1;
+  font-size: 64px;
+  font-weight: 400;
+}
+
+.weather-temperature .temp-units {
+  position: relative;
+  font-size: 16px;
+  top: -34px;
+}
+
+.weather-conditions {
+  margin-top: 6px;
+}
+
 #footer-credits {
   text-align: center;
+  color: darkgrey;
+  font-size: 12px;
 }

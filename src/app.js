@@ -1,3 +1,4 @@
+// Return current date and time
 function formatDate(timestamp) {
   let today = new Date(timestamp);
   let hours = today.getHours();
@@ -41,6 +42,7 @@ function formatDate(timestamp) {
   return `${date} ${month} ${year}, ${day}, ${hours}:${minutes}`;
 }
 
+// Return current weather information
 function displayWeather(response) {
   let city = document.querySelector("#city");
   city.innerHTML = response.data.name;
@@ -52,8 +54,8 @@ function displayWeather(response) {
   description.innerHTML = response.data.weather[0].description;
 
   let temp = document.querySelector("#temp");
-  let roundedTemp = Math.round(response.data.main.temp);
-  temp.innerHTML = roundedTemp;
+  celsiusTemp = Math.round(response.data.main.temp);
+  temp.innerHTML = celsiusTemp;
 
   let icon = document.querySelector("#icon");
   let currentIcon = response.data.weather[0].icon;
@@ -74,6 +76,7 @@ function displayWeather(response) {
   pressure.innerHTML = response.data.main.pressure;
 }
 
+// Location search and processing
 function search(city) {
   let apiKey = `7847c8cdbdd3f4d4e829321a937f5c42`;
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -90,3 +93,35 @@ search(`New York`);
 
 let form = document.querySelector("#search-form");
 form.addEventListener("click", handleSearch);
+
+// Metric-Imperial unit conversion
+function displayImperial(event) {
+  event.preventDefault();
+  let temp = document.querySelector("#temp");
+
+  // Upon click, transfer the active class from convertMetric to convertImperial
+  convertMetric.classList.remove("active");
+  convertImperial.classList.add("active");
+
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  temp.innerHTML = Math.round(fahrenheitTemp);
+}
+
+function displayMetric(event) {
+  event.preventDefault();
+  let temp = document.querySelector("#temp");
+
+  // Upon click, transfer the active class from convertImperial to convertMetric
+  convertImperial.classList.remove("active");
+  convertMetric.classList.add("active");
+
+  temp.innerHTML = celsiusTemp;
+}
+
+let celsiusTemp = null;
+
+let convertImperial = document.querySelector("#convert-imperial");
+convertImperial.addEventListener("click", displayImperial);
+
+let convertMetric = document.querySelector("#convert-metric");
+convertMetric.addEventListener("click", displayMetric);

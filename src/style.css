@@ -59,12 +59,29 @@ li {
   top: -34px;
 }
 
+.weather-temperature .active {
+  color: black;
+  text-decoration: none;
+  cursor: default;
+}
+
+.weather-temperature .active:hover {
+  color: darkorange;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .other-conditions {
   margin-top: 4px;
 }
 
 #description:first-letter {
   text-transform: capitalize;
+}
+
+#convert-metric,
+#convert-imperial {
+  text-decoration: none;
 }
 
 #footer-credits {

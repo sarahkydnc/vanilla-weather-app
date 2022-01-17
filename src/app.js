@@ -76,6 +76,33 @@ function displayWeather(response) {
   pressure.innerHTML = response.data.main.pressure;
 }
 
+// Return 5-day weather forecast
+function displayForecast() {
+  let forecast = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let forecastDays = [""];
+
+  forecastHTML = forecastHTML +
+  `
+  <div class="col-2">
+    <div class="forecast-day">Mon</div> 
+      <img 
+        src="https://openweathermap.org/img/wn/13n@2x.png" 
+        alt="" 
+        width="48"
+      />
+      <div class="forecast-temprange">
+        <span class="forecast-tempmax">18°</span>
+        <span class="forecast-tempmin">12°</span>
+      </div>
+  </div>`;
+
+  
+  forecastHTML = forecastHTML + `</div>`;
+  forecast.innerHTML = forecastHTML;
+}
+displayForecast();
+
 // Location search and processing
 function search(city) {
   let apiKey = `7847c8cdbdd3f4d4e829321a937f5c42`;
@@ -88,7 +115,6 @@ function handleSearch(event) {
   let searchInput = document.querySelector("#search-input");
   search(searchInput.value);
 }
-
 search(`New York`);
 
 let form = document.querySelector("#search-form");

@@ -140,35 +140,3 @@ search(`New York`);
 
 let form = document.querySelector("#search-form");
 form.addEventListener("click", handleSearch);
-
-// Metric-Imperial unit conversion
-function displayImperial(event) {
-  event.preventDefault();
-  let temp = document.querySelector("#temp");
-
-  // Upon click, transfer the active class from convertMetric to convertImperial
-  convertMetric.classList.remove("active");
-  convertImperial.classList.add("active");
-
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-  temp.innerHTML = Math.round(fahrenheitTemp);
-}
-
-function displayMetric(event) {
-  event.preventDefault();
-  let temp = document.querySelector("#temp");
-
-  // Upon click, transfer the active class from convertImperial to convertMetric
-  convertImperial.classList.remove("active");
-  convertMetric.classList.add("active");
-
-  temp.innerHTML = celsiusTemp;
-}
-
-let celsiusTemp = null;
-
-let convertImperial = document.querySelector("#convert-imperial");
-convertImperial.addEventListener("click", displayImperial);
-
-let convertMetric = document.querySelector("#convert-metric");
-convertMetric.addEventListener("click", displayMetric);

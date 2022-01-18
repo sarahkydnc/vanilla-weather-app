@@ -80,23 +80,25 @@ function displayWeather(response) {
 function displayForecast() {
   let forecast = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let forecastDays = [""];
+  let forecastDays = ["Wed", "Thu", "Fri", "Sat", "Sun"];
 
-  forecastHTML = forecastHTML +
+  forecastDays.forEach(function(day){
+    forecastHTML = forecastHTML +
   `
-  <div class="col-2">
-    <div class="forecast-day">Mon</div> 
-      <img 
-        src="https://openweathermap.org/img/wn/13n@2x.png" 
-        alt="" 
-        width="48"
-      />
-      <div class="forecast-temprange">
-        <span class="forecast-tempmax">18°</span>
-        <span class="forecast-tempmin">12°</span>
-      </div>
-  </div>`;
-
+    <div class="col-2">
+      <div class="forecast-day">${day} </div> 
+        <img 
+          src="https://openweathermap.org/img/wn/13n@2x.png" 
+          alt="" 
+          width="48"
+        />
+        <div class="forecast-temprange">
+          <span class="forecast-tempmax">18°</span>
+          <span class="forecast-tempmin">12°</span>
+        </div>
+    </div>
+  `;
+  })
   
   forecastHTML = forecastHTML + `</div>`;
   forecast.innerHTML = forecastHTML;

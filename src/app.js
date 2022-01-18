@@ -74,10 +74,14 @@ function displayWeather(response) {
 
   let pressure = document.querySelector("#pressure");
   pressure.innerHTML = response.data.main.pressure;
+
+  getForecast(response.data.coord);
 }
 
 // Return 5-day weather forecast
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
+
   let forecast = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let forecastDays = ["Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -103,13 +107,19 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecast.innerHTML = forecastHTML;
 }
-displayForecast();
 
 // Location search and processing
 function search(city) {
   let apiKey = `7847c8cdbdd3f4d4e829321a937f5c42`;
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiURL).then(displayWeather);
+}
+
+// Location coordinates' retrieval and processing
+function getForecast(coordinates) {
+  let apiKey = `7847c8cdbdd3f4d4e829321a937f5c42`;
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiURL).then(displayForecast);
 }
 
 function handleSearch(event) {
